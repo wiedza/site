@@ -1,4 +1,4 @@
-= Wiedz Site
+= Wiedza Site
 :encoding: UTF-8
 :toc: macro
 :toclevels: 4
