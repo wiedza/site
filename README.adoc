@@ -1,0 +1,8 @@
+= Wiedz Site
+:encoding: UTF-8
+:toc: macro
+:toclevels: 4
+
+toc::[4]
+
+
