@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ==================================================================== 
+    = MAVEN
+    ====================================================================== -->
+    <prerequisites>
+        <maven>3.2.3</maven>
+    </prerequisites>
+
+
+    <!-- ==================================================================== 
+    = PROJECT
+    ====================================================================== -->
+    <groupId>org.wiedza.web</groupId>
+    <artifactId>site</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+  
+    <!-- =====================================================================
+    = PROPERTIES
+    ====================================================================== -->
+    <properties>
+        <!--[ Project ]+++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <jdk>1.8</jdk>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.datePattern>yyyy-MM-dd'T'HH:mm:ss.SSSZ</project.build.datePattern>
+        
+        <!--[ Jakarta EE ]+++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <javax.javaee-api.version>8.0</javax.javaee-api.version>
+        <javax.cdi-api.version>2.0</javax.cdi-api.version>
+        <javax.servlet.version>3.0.1</javax.servlet.version>
+
+        <org.jboss.resteasy.version>4.0.0.Beta1</org.jboss.resteasy.version>
+        <org.jboss.weld.version>3.0.2.Final</org.jboss.weld.version>        
+        
+        <!--[ LOGGER ]+++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <org.slf4j.version>1.7.21</org.slf4j.version>
+        <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
+        
+        <!--[ Others ]+++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <org.tuckey.urlrewritefilter.version>4.0.4</org.tuckey.urlrewritefilter.version>
+        
+        <!--[ Plugins ]++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <plugins.org-apache-maven-plugins.maven-compiler-plugin>3.1</plugins.org-apache-maven-plugins.maven-compiler-plugin>
+
+
+    </properties>    
+    
+    <!-- =====================================================================
+    = DEPENDENCIES MANAGEMENT
+    ====================================================================== -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jaxrs-all</artifactId>
+                <version>${org.jboss.resteasy.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.weld</groupId>
+                <artifactId>weld-core-bom</artifactId>
+                <version>${org.jboss.weld.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+    
+    
+    <!-- =====================================================================
+    = DEPENDENCIES
+    ====================================================================== -->
+    <dependencies>
+        <!-- :::::::::::: JAVA EE :::::::::::::::::::::::::::::::::::::: -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>${javax.cdi-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javax.javaee-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>${javax.cdi-api.version}</version>
+        </dependency>
+
+
+        <!-- CDI / Weld -->
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
+        </dependency>
+        
+        <!-- JAX-RS / RestEasy -->
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+            <version>${org.jboss.resteasy.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson2-provider</artifactId>
+            <version>${org.jboss.resteasy.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-cdi</artifactId>
+            <version>${org.jboss.resteasy.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-servlet-initializer</artifactId>
+            <version>${org.jboss.resteasy.version}</version>
+        </dependency>
+
+
+
+        <!-- :::::::::::: OTHERS :::::::::::::::::::::::::::::::::::::: -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${ch.qos.logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.tuckey</groupId>
+            <artifactId>urlrewritefilter</artifactId>
+            <version>${org.tuckey.urlrewritefilter.version}</version>
+        </dependency>
+    </dependencies>
+    
+    
+    <!-- =====================================================================
+    = BUILD
+    ====================================================================== -->
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${plugins.org-apache-maven-plugins.maven-compiler-plugin}</version>
+                <configuration>
+                    <source>${jdk}</source>
+                    <target>${jdk}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <optimize>true</optimize>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                    <compilerArgs>
+                        <arg>-verbose</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+</project>

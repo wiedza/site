@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration > 
+
+    <!-- ======================================================================= 
+    = APPENDERS
+    ======================================================================== -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{dd/MM HH:mm:ss}|%logger|%-5level|%thread| %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender class="ch.qos.logback.core.rolling.RollingFileAppender" name="INSTANCE">
+        <File>${log.path}/${instance.name}.log</File>
+        <Append>true</Append>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>20MB</maxFileSize>
+        </triggeringPolicy>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${log.path}/${instance.name}.log.%i</fileNamePattern>
+            <maxIndex>2</maxIndex>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{dd/MM HH:mm:ss}|%msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- ======================================================================= 
+    = LOGGERS LEVELS
+    ======================================================================== -->
+    <root level="INFO">
+        <appender-ref ref="INSTANCE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
