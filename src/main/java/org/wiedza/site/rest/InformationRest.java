@@ -1,3 +1,12 @@
+/* WIEDZA
+ * -----------------
+ * GNU GENERAL PUBLIC LICENSE
+ *  Version 3, 29 June 2007
+ *
+ * Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+ * Everyone is permitted to copy and distribute verbatim copies
+ * of this license document, but changing it is not allowed.
+ */
 package org.wiedza.site.rest;
 
 import javax.ws.rs.GET;
@@ -25,7 +34,7 @@ public class InformationRest {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Information get() {
-        return new Information("Test"); 
+        return new Information("Test");
     }
     
 }

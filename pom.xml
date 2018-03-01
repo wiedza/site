@@ -97,11 +97,6 @@
             <version>${javax.servlet.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-            <version>${javax.cdi-api.version}</version>
-        </dependency>
 
 
         <!-- CDI / Weld -->
