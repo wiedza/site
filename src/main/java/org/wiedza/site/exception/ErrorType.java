@@ -1,8 +1,4 @@
-/*
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
- *
- * Copyright (c) VSCT and/or its affiliates. All rights reserved.
- */
+
 package org.wiedza.site.exception;
 
 import java.io.Serializable;
